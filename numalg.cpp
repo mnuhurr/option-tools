@@ -89,12 +89,7 @@ double numalg::root::secant(const std::function<double(double)>& f,
 
 
 double numalg::integral::simpson(double (*f)(double), double a, double b, unsigned long n) {
-    /**
-     * compute numerical integral using simpson's rule. here n is the number of intervals,
-     * so the number of points is n+1. if n is not even then use n+1 points.
-     * 
-     * */
-    
+
     // make n even
     if (n & 1) {
         n++;
