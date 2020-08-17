@@ -3,7 +3,7 @@ CXX = g++
 CXX_FLAGS = -Wall -Wextra -std=c++17
 
 TARGET = otool
-SRCS = main.cpp bs.cpp cvec.cpp fft.cpp heston.cpp utils.cpp
+SRCS = main.cpp bs.cpp cvec.cpp fft.cpp heston.cpp utils.cpp numalg.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: clean

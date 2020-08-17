@@ -8,7 +8,16 @@
 #include <iostream>
 
 double numalg::root_bisect(const std::function<double(double)>& f, const double& a, const double& b, const double& tolerance) {
-
+    /**
+     * find a root with the bisect method. f(a) and f(b) should have different signs.
+     * 
+     * arguments:
+     * f: function 
+     * a: the first endpoint of the search interval
+     * b: the another endpoint of the search interval
+     * 
+     * returns: root for f.
+     */
     double x_0 = a;
     double x_1 = b;
     double x_new = 0;
@@ -54,6 +63,17 @@ double numalg::root_bisect(const std::function<double(double)>& f, const double&
 }
 
 double numalg::root_secant(const std::function<double(double)>& f, const double& a, const double& b, const double& tolerance) {
+    /**
+     * find a root with the secant method. the given function arguments of f should reside near the root.
+     * 
+     * arguments:
+     * f: function 
+     * a: some argument for f
+     * b: another argument for f
+     * 
+     * return: x for which f(x) = 0.
+     */
+
     double x_0 = a;
     double x_1 = b;
     double x_new = 0;

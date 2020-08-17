@@ -4,7 +4,7 @@
 #include <functional>
 
 namespace numalg {
-    const double tol = 1e-9;
+    const double tol = 1e-12;
 
     // find a root with a bisection method
     double root_bisect(const std::function<double(double)>& f, const double& a, const double& b, const double& tolerance = tol);
