@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 
+#include "bs.hpp"
 #include "utils.hpp"
 #include "heston.hpp"
-
+#include "numalg.hpp"
 
 
 int main() {
@@ -22,5 +23,15 @@ int main() {
         std::cout << strikes[k] << ": " << cp[k] << std::endl;
     }
     
+    double r = 0.05; 
+    double sig = 0.04;
+    double T = 0.2;
+    double K = 6.0;
+
+    double C = black_scholes::call_price(S, K, T, r, sig);
+    double iv = black_scholes::call_impvol(S, K, T, C, r);
+    
+    std::cout << sig << " " << iv << std::endl;
+
     return 0;
 }

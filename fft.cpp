@@ -3,13 +3,10 @@
 #include "utils.hpp"
 
 #include <iostream>
-void print_cv(const complex_vector& v);
 
 using consts::pi;
 
-
-
-// private helpers
+// private helper funcs
 namespace fft {
     unsigned long bit_reverse(unsigned long x, unsigned int log2n) {
         unsigned long n = 0;
@@ -65,7 +62,10 @@ namespace fft {
 }
 
 
-
+/**
+ * compute a discrete fourier transform of a complex sequence. at the 
+ * moment requires that the length of the sequence is a power of 2. 
+ */
 complex_vector fft::fft(const complex_vector& cv) {
     unsigned long len = cv.length();
     unsigned long loglen = std::log2(len);

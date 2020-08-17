@@ -1,9 +1,16 @@
+/*
+ * class for vectorized computations of copmlex numbers. 
+ * 
+ */
 
 #pragma once
 
 #include <vector>
 #include <complex>
 
+
+// Class to handle a vector (or a finite sequence) of complex numbers.
+// Operations with other objects of the same class are made element-wise.
 class complex_vector {
 public:
     complex_vector(const unsigned long& dim);
@@ -16,8 +23,8 @@ public:
     double norm() const;
 
     complex_vector operator = (const complex_vector& cv);
-    
-
+   
+    // negation
     complex_vector operator - () const;
 
     // element access
@@ -45,9 +52,6 @@ public:
     complex_vector operator += (const std::complex<double>& z);
     complex_vector operator -= (const std::complex<double>& z);
 
-
-    
-
     // lin alg stuff
     complex_vector operator + (const complex_vector& cv) const;
     complex_vector operator - (const complex_vector& cv) const;
@@ -55,12 +59,11 @@ public:
     complex_vector operator += (const complex_vector& cv);
     complex_vector operator -= (const complex_vector& cv);
 
-    // element-wise stuff
+    // these are also element-wise stuff
     complex_vector operator * (const complex_vector& cv) const;
     complex_vector operator / (const complex_vector& cv) const;
     complex_vector operator *= (const complex_vector& cv);
     complex_vector operator /= (const complex_vector& cv);
-
 
     complex_vector conj() const;
     complex_vector square() const;
@@ -86,6 +89,9 @@ private:
     unsigned long _dim;
 };
 
+/*
+ * some operators to make life easier
+ */
 inline complex_vector operator+ (const double d, const complex_vector& cv) {
     return cv + d;
 }

@@ -5,19 +5,10 @@
 #include "numalg.hpp"
 
 
-#include <iostream>
+// the bisection method
+double numalg::root_bisect(const std::function<double(double)>& f, 
+    const double& a, const double& b, const double& tolerance) {
 
-double numalg::root_bisect(const std::function<double(double)>& f, const double& a, const double& b, const double& tolerance) {
-    /**
-     * find a root with the bisect method. f(a) and f(b) should have different signs.
-     * 
-     * arguments:
-     * f: function 
-     * a: the first endpoint of the search interval
-     * b: the another endpoint of the search interval
-     * 
-     * returns: root for f.
-     */
     double x_0 = a;
     double x_1 = b;
     double x_new = 0;
@@ -52,8 +43,6 @@ double numalg::root_bisect(const std::function<double(double)>& f, const double&
         round++;
     }
 
-    std::cout << "bisect rounds: " << round << std::endl;
-
     // check which one of the points we should return
     if (std::abs(y_1) < std::abs(y_0)) {
         return x_1;
@@ -62,17 +51,9 @@ double numalg::root_bisect(const std::function<double(double)>& f, const double&
     }
 }
 
-double numalg::root_secant(const std::function<double(double)>& f, const double& a, const double& b, const double& tolerance) {
-    /**
-     * find a root with the secant method. the given function arguments of f should reside near the root.
-     * 
-     * arguments:
-     * f: function 
-     * a: some argument for f
-     * b: another argument for f
-     * 
-     * return: x for which f(x) = 0.
-     */
+// secant method
+double numalg::root_secant(const std::function<double(double)>& f, 
+    const double& a, const double& b, const double& tolerance) {
 
     double x_0 = a;
     double x_1 = b;
@@ -90,7 +71,6 @@ double numalg::root_secant(const std::function<double(double)>& f, const double&
         y_new = f(x_new);
 
         if (std::abs(y_new) < tolerance) {
-            std::cout << "secant rounds: " << round << std::endl;
             return x_new;
         }
 
