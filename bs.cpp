@@ -27,8 +27,8 @@ double black_scholes::call_impvol(double S, double K, double t, double C, double
     auto f = [&] (double sigma) { return call_price(S, K, t, r, sigma) - C; };
 
     // bisect may be more stable
-    // double iv = numalg::root_bisect(f, iv_min_sigma, iv_max_sigma);
-    double iv = numalg::root_secant(f, 0.05, 1.0);
+    // double iv = numalg::root::bisect(f, iv_min_sigma, iv_max_sigma);
+    double iv = numalg::root::secant(f, 0.05, 1.0);
 
     return iv;
 }
@@ -37,7 +37,7 @@ double black_scholes::put_impvol(double S, double K, double t, double P, double 
     auto f = [&] (double sigma) { return put_price(S, K, t, r, sigma) - P; };
 
     // using bisect could be more stable
-    double iv = numalg::root_secant(f, 0.05, 1.0);
+    double iv = numalg::root::secant(f, 0.05, 1.0);
 
     return iv;
 }

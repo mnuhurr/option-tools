@@ -6,7 +6,7 @@
 
 
 // the bisection method
-double numalg::root_bisect(const std::function<double(double)>& f, 
+double numalg::root::bisect(const std::function<double(double)>& f, 
     const double& a, const double& b, const double& tolerance) {
 
     double x_0 = a;
@@ -52,7 +52,7 @@ double numalg::root_bisect(const std::function<double(double)>& f,
 }
 
 // secant method
-double numalg::root_secant(const std::function<double(double)>& f, 
+double numalg::root::secant(const std::function<double(double)>& f, 
     const double& a, const double& b, const double& tolerance) {
 
     double x_0 = a;
@@ -84,4 +84,53 @@ double numalg::root_secant(const std::function<double(double)>& f,
     }
 
     return x_new;
+}
+
+
+
+double numalg::integral::simpson(double (*f)(double), double a, double b, unsigned long n) {
+    /**
+     * compute numerical integral using simpson's rule. here n is the number of intervals,
+     * so the number of points is n+1. if n is not even then use n+1 points.
+     * 
+     * */
+    
+    // make n even
+    if (n & 1) {
+        n++;
+    }
+
+    std::vector<double> x = utils::linspace<double>(a, b, n + 1);
+    double dx = x[1] - x[0];
+    
+    // end points
+    double s = f(a) + f(b);
+
+    // all the rest
+    for (unsigned long k = 1; k < n; ++k) {
+        if (k & 1) {
+            s += 4 * f(x[k]);
+        } else {
+            s += 2 * f(x[k]);
+        }
+    }
+
+    return dx/3 * s;
+}
+
+double numalg::integral::trapezoid(double (*f)(double), double a, double b, unsigned long n) {
+    std::vector<double> x = utils::linspace<double>(a, b, n + 1);
+
+    double dx = x[1] - x[0];
+
+    // end points
+    double s = f(a) + f(b);
+
+    // all the rest
+    for (unsigned long k = 1; k < n; ++k) {
+        s += 2 * f(x[k]);
+    }
+
+    return dx / 2 * s;
+
 }
