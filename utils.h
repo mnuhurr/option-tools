@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "cvec.hpp"
+#include "cvec.h"
 
 // namespace for different constants
 namespace consts {

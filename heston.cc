@@ -9,10 +9,10 @@ option pricing with heston model
 #include <complex>
 #include <cmath>
 
-#include "heston.hpp"
-#include "utils.hpp"
-#include "cvec.hpp"
-#include "fft.hpp"
+#include "heston.h"
+#include "fft.h"
+#include "cvec.h"
+#include "utils.h"
 
 using consts::pi;
 

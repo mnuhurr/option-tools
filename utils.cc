@@ -2,8 +2,8 @@
 #include <cmath>
 #include <iostream>
 
-#include "utils.hpp"
-#include "cvec.hpp"
+#include "utils.h"
+#include "cvec.h"
 
 
 double utils::normal_cdf(double x) {

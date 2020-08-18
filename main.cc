@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 
-#include "bs.hpp"
-#include "utils.hpp"
-#include "heston.hpp"
-#include "numalg.hpp"
+#include "bs.h"
+#include "utils.h"
+#include "heston.h"
+#include "numalg.h"
 
 
 int main() {
@@ -22,7 +22,7 @@ int main() {
     for (unsigned long k = 0; k < strikes.size(); ++k) {
         std::cout << strikes[k] << ": " << cp[k] << std::endl;
     }
-    
+    /*
     double r = 0.05; 
     double sig = 0.04;
     double T = 0.2;
@@ -32,6 +32,6 @@ int main() {
     double iv = black_scholes::call_impvol(S, K, T, C, r);
     
     std::cout << sig << " " << iv << std::endl;
-
+*/
     return 0;
 }

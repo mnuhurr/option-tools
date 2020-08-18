@@ -1,10 +1,8 @@
 
 #pragma once
 
-
-#include "cvec.hpp"
-#include "utils.hpp"
-
+#include "cvec.h"
+#include "utils.h"
 
 namespace fft {
 

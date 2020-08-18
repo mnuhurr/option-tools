@@ -1,8 +1,6 @@
 
-#include "fft.hpp"
-#include "utils.hpp"
-
-#include <iostream>
+#include "fft.h"
+#include "utils.h"
 
 using consts::pi;
 

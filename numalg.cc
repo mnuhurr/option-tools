@@ -1,8 +1,9 @@
 
 #include <cmath>
 
-#include "utils.hpp"
-#include "numalg.hpp"
+#include "numalg.h"
+#include "utils.h"
+
 
 
 // the bisection method

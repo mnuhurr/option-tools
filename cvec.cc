@@ -1,6 +1,6 @@
 
 #include <cmath>
-#include "cvec.hpp"
+#include "cvec.h"
 
 
 complex_vector::complex_vector(const unsigned long& dim) : _dim(dim) {

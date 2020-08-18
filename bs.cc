@@ -2,10 +2,10 @@
 #include <iostream>
 
 #include <cmath>
-#include "numalg.hpp"
-#include "utils.hpp"
 
-#include "bs.hpp"    
+#include "bs.h"    
+#include "numalg.h"
+#include "utils.h"
 
 
 double black_scholes::call_price(double S, double K, double t, double r, double sigma) {
